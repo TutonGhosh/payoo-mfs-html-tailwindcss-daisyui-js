@@ -1,4 +1,4 @@
-// Login
+// Login Page
 function logIn(event)
 {
     // event.preventDefault();
@@ -10,13 +10,16 @@ function logIn(event)
 
     if((!isNaN(number) && inputNumber.value.length === 11) && (!isNaN(pin) && inputPin.value.length === 4))
     {
-        const login = document.getElementById('login-section');
-        const home = document.getElementById('home-section');
-        login.classList.add('hidden');
-        home.classList.remove('hidden');
+        window.location.href = "./home.html"
     }
     else
     {
-        alert("Please enter a valid number!");
+        alert("Please enter a valid number and pin!");
     }
+}
+
+// Logout
+function logOut()
+{
+    window.location.href = "./login.html";
 }
