@@ -23,3 +23,9 @@ function logOut()
 {
     window.location.href = "./index.html";
 }
+
+// Add Money Page
+function addMoney()
+{
+    window.location.href = "./addmoney.html"
+}
