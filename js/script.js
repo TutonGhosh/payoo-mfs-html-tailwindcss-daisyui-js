@@ -21,5 +21,5 @@ function logIn(event)
 // Logout
 function logOut()
 {
-    window.location.href = "./login.html";
+    window.location.href = "./index.html";
 }
