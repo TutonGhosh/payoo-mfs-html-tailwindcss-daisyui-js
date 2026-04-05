@@ -207,6 +207,11 @@ function payBillBtn()
     }
 }
 
+// Transaction History Page
+function transactionHistory()
+{
+    window.location.href = "./transactionhistory.html"
+}
 // Back to Home
 function backToHome(mainBalance)
 {
