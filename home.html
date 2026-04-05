@@ -14,7 +14,7 @@
     <script src="https://kit.fontawesome.com/61951a945a.js" crossorigin="anonymous"></script>
 
 </head>
-<body class="bg-[#f4f5f7] h-[100vh]">
+<body class="bg-[#f4f5f7] h-full">
     <main class="max-w-[360px] mx-auto">
         <!-- Navbar & Home Section -->
         <section class="bg-[#FFFFFF] pb-5 rounded-bl-3xl rounded-br-3xl">
@@ -24,7 +24,7 @@
                     <div class="flex justify-center gap-2">
                         <img class="h-[50px]" src="assets/logo.png" alt="">
                         <div>
-                            <h1 class="text-lg font-extrabold">$50000</h1>
+                            <h1 id="main-balance" class="text-lg font-extrabold">$50000</h1>
                             <p class="text-base text-gray-500 font-semibold">Available Balance</p>
                         </div>
                     </div>
@@ -44,12 +44,12 @@
                     <!-- Paytment Options -->
                     <div class="mt-8 grid grid-cols-3 gap-2">
                         <!-- opt1 -->
-                        <button onclick="addMoney()" id="opt-1" class="border-2 border-gray-300 rounded-2xl h-[90px] flex items-center justify-center p-2">
+                        <div onclick="addMoney()" id="opt-1" class="border-2 border-gray-300 rounded-2xl h-[90px] flex items-center justify-center p-2">
                             <div class="flex flex-col items-center">
                                 <img src="assets/opt-1.png" alt="">
                                 <h1 id="opt-1-text" class="text-gray-600 font-semibold text-center">Add Money</h1>
                             </div>
-                        </button>
+                        </div>
                         <!-- opt2 -->
                         <div class="border-2 border-gray-300 rounded-2xl h-[90px] flex items-center justify-center p-2">
                             <div class="flex flex-col items-center">
@@ -162,6 +162,15 @@
         </div>
         </section>
     </main>
+    <script>
+        window.onload = function() 
+        {
+            const savedBalance = localStorage.getItem('mainBalance');
+            if (savedBalance) {
+                document.getElementById('main-balance').innerText = '$' + savedBalance;
+            }
+        }
+    </script>
     <script src="js/script.js"></script>
     <script src="js/utility.js"></script>
 </body>

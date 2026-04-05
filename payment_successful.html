@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payoo</title>
+    <link rel="shortcut icon" href="assets/logo.png" type="image/x-icon">
+    <link rel="stylesheet" href="styles/style.css">
+    <!-- DaisyUI & TailwindCSS CDS -->
+     <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+</head>
+<body class="bg-[#f4f5f7] h-[100vh] flex justify-center items-center">
+    <!-- Add Money Confirmation -->
+    <section>
+        <div class="bg-[#FFFFFF] p-5 max-w-[350px] rounded-xl flex flex-col items-center space-y-6">
+            <div>
+                <img class="h-[50px]" src="assets/logo.png" alt="">
+            </div>
+            <div class="text-center space-y-2">
+                <h1 class="text-2xl font-extrabold text-gray-600">Add Money Successful</h1>
+            </div>
+            <div>
+                <button onclick="backToHome()" type="button" class="btn w-full bg-[#3B25C1] text-xl font-semibold text-white border-none rounded-xl">Back to Home</button>
+            </div>
+        </div>
+    </section>
+    <script>
+    window.onload = function() 
+    {
+        const savedBalance = localStorage.getItem('mainBalance');
+        if (savedBalance) {
+            document.getElementById('current-balance').innerText = '$' + savedBalance;
+        }
+    }
+</script>
+    <script src="js/script.js"></script>
+    <script src="js/utility.js"></script>
+</body>
+</html>

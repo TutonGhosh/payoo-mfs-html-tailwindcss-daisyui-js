@@ -14,7 +14,7 @@
     <script src="https://kit.fontawesome.com/61951a945a.js" crossorigin="anonymous"></script>
 
 </head>
-<body class="bg-[#f4f5f7] h-[100vh]">
+<body class="bg-[#f4f5f7] h-full">
     <main class="max-w-[360px] mx-auto">
         <!-- Navbar & Home Section -->
         <section class="bg-[#FFFFFF] pb-5 rounded-bl-3xl rounded-br-3xl">
@@ -24,7 +24,7 @@
                     <div class="flex justify-center gap-2">
                         <img class="h-[50px]" src="assets/logo.png" alt="">
                         <div>
-                            <h1 class="text-lg font-extrabold">$50000</h1>
+                            <h1 id="main-balance" class="text-lg font-extrabold">$50000</h1>
                             <p class="text-base text-gray-500 font-semibold">Available Balance</p>
                         </div>
                     </div>
@@ -93,9 +93,9 @@
         <section class="mt-5 p-2">
             <div>
                 <h1 class="text-lg font-semibold">Add Money</h1>
-                <form class="mt-5 p-5 bg-[#FFFFFF] space-y-5 rounded-xl">
+                <form class="mt-2 p-5 bg-[#FFFFFF] space-y-5 rounded-xl">
                     <div class="flex flex-col space-y-2">
-                        <h1 class="text-base font-semibold">Select A BAnk</h1>
+                        <h1 class="text-base font-semibold">Select A Bank</h1>
                         <select class="select bg-[#f4f5f7] rounded-full border-none focus:outline-none focus:ring-0">
                             <option disabled selected>Select A Bank</option>
                             <option>Brac Bank</option>
@@ -105,26 +105,34 @@
                     </div>
                     <div class="flex flex-col space-y-2">
                         <h1 class="text-base font-semibold">Bank Account Number</h1>
-                        <input type="text" placeholder="Enter 11 Account Number"
+                        <input id="input-acc-number" type="text" placeholder="Enter 11 Account Number"
                             class="input bg-[#f4f5f7] rounded-full border-none focus:outline-none focus:ring-0" />
                     </div>
                     <div class="flex flex-col space-y-2">
                         <h1 class="text-base font-semibold">Amount to Add</h1>
-                        <input type="text" placeholder="Add Amount"
+                        <input id="input-amount" type="text" placeholder="Add Amount"
                             class="input bg-[#f4f5f7] rounded-full border-none focus:outline-none focus:ring-0" />
                     </div>
                     <div class="flex flex-col space-y-2">
                         <h1 class="text-base font-semibold">4 Digit Pin</h1>
-                        <input type="password" placeholder="Enter 4 Digit Pin"
+                        <input id="input-pin" type="password" placeholder="Enter 4 Digit Pin"
                             class="input bg-[#f4f5f7] rounded-full border-none focus:outline-none focus:ring-0" />
                     </div>
                     <div>
-                        <button type="button"
-                            class="btn w-full bg-[#3B25C1] text-xl font-semibold text-white border-none rounded-full">Add Money</button>
+                        <button onclick="addMoneyBtn()" type="button" class="btn w-full bg-[#3B25C1] text-xl font-semibold text-white border-none rounded-full">Add Money</button>
                     </div>
                 </form>
             </div>
         </section>
+        
+        <script>
+            window.onload = function () {
+                const savedBalance = localStorage.getItem('mainBalance');
+                if (savedBalance) {
+                    document.getElementById('main-balance').innerText = '$' + savedBalance;
+                }
+            }
+        </script>
     </main>
     <script src="js/script.js"></script>
     <script src="js/utility.js"></script>
