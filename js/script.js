@@ -132,9 +132,45 @@ function transferMoneyBtn()
     }
 }
 
+// Get Bonus Page
+function getBonus()
+{
+    window.location.href = "./getbonus.html";
+}
+// Get Bonus Function
+function getBonusBtn()
+{
+    const mainBalance = document.getElementById('main-balance');
+    const inputCoupon = document.getElementById('input-coupon');
+    const coupon = inputCoupon.value
+
+    let balance = parseInt(mainBalance.innerText.replace('$', ''));
+
+    if(coupon === 'payoo100' || coupon === 'payoo200')
+    {
+        if(coupon === 'payoo100')
+        {
+            balance += 100;
+            mainBalance.innerHTML = '$' + balance;
+            window.localStorage.setItem('mainBalance', balance);
+            window.location.href = "./transaction_successful.html";
+        }
+        else if(coupon === 'payoo200')
+        {
+            balance += 200;
+            mainBalance.innerHTML = '$' + balance;
+            window.localStorage.setItem('mainBalance', balance);
+            window.location.href = "./transaction_successful.html";
+        }
+    }
+    else
+    {
+        alert("Wrong Coupon!");
+    }
+}
+
 // Back to Home
 function backToHome(mainBalance)
 {
-
     window.location.href = "./home.html"
 }
