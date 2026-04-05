@@ -36,19 +36,57 @@ function addMoneyBtn()
     const inputAccNumber = document.getElementById('input-acc-number');
     const inputAmount = document.getElementById('input-amount');
     const inputPin = document.getElementById('input-pin');
+    const selectBank = document.querySelector('select');
 
     let balance = parseInt(mainBalance.innerText.replace('$', ''));
     const accNumber = parseInt(inputAccNumber.value);
     const amount = parseInt(inputAmount.value);
     const pin = parseInt(inputPin.value);
 
-
-    if((!isNaN(accNumber) && inputAccNumber.value.length === 11) && (!isNaN(pin) && inputPin.value.length === 4))
+    if((selectBank.value !== 'Select A Bank') && (!isNaN(accNumber) && inputAccNumber.value.length === 11) && (!isNaN(pin) && inputPin.value.length === 4))
     {
         balance += amount;
         mainBalance.innerText = '$' + balance;
         localStorage.setItem('mainBalance', balance);
-        window.location.href = './payment_successful.html';
+        window.location.href = './transaction_successful.html';
+    }
+    else
+    {
+        alert("Invalid Input");
+    }
+}
+
+// Cash Out Page
+function cashOut() 
+{
+    window.location.href = "./cashout.html";
+}
+// Cash Out Function
+function cashOutBtn()
+{
+    const mainBalance = document.getElementById('main-balance');
+    const inputAgentNumber = document.getElementById('input-agent-number');
+    const inputAmount = document.getElementById('input-amount');
+    const inputPin = document.getElementById('input-pin');
+
+    let balance = parseInt(mainBalance.innerText.replace('$', ''));
+    const agentNumber = parseInt(inputAgentNumber.value);
+    const amount = parseInt(inputAmount.value);
+    const pin = parseInt(inputPin.value);
+
+    if((!isNaN(agentNumber) && inputAgentNumber.value.length === 11) && (!isNaN(pin) && inputPin.value.length === 4))
+    {
+        if(balance < amount)
+        {
+            alert("Insufficient balance!");
+        }
+        else
+        {
+            balance -= amount;
+            mainBalance.innerHTML = '$' + balance;
+            window.localStorage.setItem('mainBalance', balance);
+            window.location.href = "./transaction_successful.html";
+        }
     }
     else
     {

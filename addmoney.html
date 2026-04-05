@@ -14,7 +14,7 @@
     <script src="https://kit.fontawesome.com/61951a945a.js" crossorigin="anonymous"></script>
 
 </head>
-<body class="bg-[#f4f5f7] h-full">
+<body class="bg-[#f4f5f7] h-full font-outfit">
     <main class="max-w-[360px] mx-auto">
         <!-- Navbar & Home Section -->
         <section class="bg-[#FFFFFF] pb-5 rounded-bl-3xl rounded-br-3xl">
@@ -25,7 +25,7 @@
                         <img class="h-[50px]" src="assets/logo.png" alt="">
                         <div>
                             <h1 id="main-balance" class="text-lg font-extrabold">$50000</h1>
-                            <p class="text-base text-gray-500 font-semibold">Available Balance</p>
+                            <p class="text-sm text-gray-500 font-medium">Available Balance</p>
                         </div>
                     </div>
                     <div>
@@ -51,7 +51,7 @@
                             </div>
                         </div>
                         <!-- opt2 -->
-                        <div class="border-2 border-gray-300 rounded-2xl h-[90px] flex items-center justify-center p-2">
+                        <div onclick="cashOut()" class="border-2 border-gray-300 rounded-2xl h-[90px] flex items-center justify-center p-2">
                             <div class="flex flex-col items-center">
                                 <img src="assets/opt-2.png" alt="">
                                 <h1 id="opt2-text" class="text-gray-600 font-semibold text-center">Cash Out</h1>
@@ -92,7 +92,7 @@
         <!-- Add Money -->
         <section class="mt-5 p-2">
             <div>
-                <h1 class="text-lg font-semibold">Add Money</h1>
+                <h1 class="text-lg font-semibold ml-2">Add Money</h1>
                 <form class="mt-2 p-5 bg-[#FFFFFF] space-y-5 rounded-xl">
                     <div class="flex flex-col space-y-2">
                         <h1 class="text-base font-semibold">Select A Bank</h1>
