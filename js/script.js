@@ -94,6 +94,44 @@ function cashOutBtn()
     }
 }
 
+// Transfer Money Page
+function transferMoney()
+{
+    window.location.href = "./transfermoney.html"
+}
+// Transfer Money Function
+function transferMoneyBtn()
+{
+    const mainBalance = document.getElementById('main-balance');
+    const inputAccountNumber = document.getElementById('input-account-number');
+    const inputAmount = document.getElementById('input-amount');
+    const inputPin = document.getElementById('input-pin');
+
+    let balance = parseInt(mainBalance.innerText.replace('$', ''));
+    const accountNumber = parseInt(inputAccountNumber.value);
+    const amount = parseInt(inputAmount.value);
+    const pin = parseInt(inputPin.value);
+
+    if((!isNaN(accountNumber) && inputAccountNumber.value.length === 11) && (!isNaN(pin) && inputPin.value.length === 4))
+    {
+        if(balance < amount)
+        {
+            alert("Insufficient balance!");
+        }
+        else
+        {
+            balance -= amount;
+            mainBalance.innerHTML = '$' + balance;
+            window.localStorage.setItem('mainBalance', balance);
+            window.location.href = "./transaction_successful.html";
+        }
+    }
+    else
+    {
+        alert("Invalid Input");
+    }
+}
+
 // Back to Home
 function backToHome(mainBalance)
 {
