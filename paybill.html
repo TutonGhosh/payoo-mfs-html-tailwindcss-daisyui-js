@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payoo</title>
+    <link rel="shortcut icon" href="assets/logo.png" type="image/x-icon">
+    <link rel="stylesheet" href="styles/style.css">
+    <!-- DaisyUI & TailwindCSS CDS -->
+     <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <!-- Font Awesome -->
+    <script src="https://kit.fontawesome.com/61951a945a.js" crossorigin="anonymous"></script>
+
+</head>
+<body class="bg-[#f4f5f7] h-full font-outfit">
+    <main class="max-w-[360px] mx-auto">
+        <!-- Navbar & Home Section -->
+        <section class="bg-[#FFFFFF] pb-5 rounded-bl-3xl rounded-br-3xl">
+            <!-- Navbar Section -->
+            <section class="border-b-2 border-gray-300">
+                <div class="flex justify-between items-center p-2">
+                    <div class="flex justify-center gap-2">
+                        <img class="h-[50px]" src="assets/logo.png" alt="">
+                        <div>
+                            <h1 id="main-balance" class="text-lg font-extrabold">$50000</h1>
+                            <p class="text-sm text-gray-500 font-medium">Available Balance</p>
+                        </div>
+                    </div>
+                    <div>
+                        <button onclick="logOut()" class="btn text-base text-gray-500"><i class="fa-solid fa-arrow-right-from-bracket rotate-180"></i>
+                            Logout</button>
+                    </div>
+                </div>
+            </section>
+            <!-- Home Section -->
+            <section>
+                <div class="mt-5 p-2">
+                    <div class="text-center">
+                        <h1 class="text-2xl font-bold">Welcome to Pay<span class="text-[#7460FF]">oo</span></h1>
+                        <p class="text-base text-gray-500 font-semibold mt-2">Enjoy easy and convenient financial services with us.</p>
+                    </div>
+                    <!-- Paytment Options -->
+                    <div class="mt-8 grid grid-cols-3 gap-2">
+                        <!-- opt1 -->
+                        <div onclick="addMoney()" class="cursor-pointer border-2 border-gray-300 rounded-2xl h-[90px] flex items-center justify-center p-2">
+                            <div class="flex flex-col items-center">
+                                <img src="assets/opt-1.png" alt="">
+                                <h1 class="text-gray-600 font-semibold text-center">Add Money</h1>
+                            </div>
+                        </div>
+                        <!-- opt2 -->
+                        <div onclick="cashOut()" class="cursor-pointer border-2 border-gray-300 rounded-2xl h-[90px] flex items-center justify-center p-2">
+                            <div class="flex flex-col items-center">
+                                <img src="assets/opt-2.png" alt="">
+                                <h1 id="opt2-text" class="text-gray-600 font-semibold text-center">Cash Out</h1>
+                            </div>
+                        </div>
+                        <!-- opt3 -->
+                        <div onclick="transferMoney()" class="cursor-pointer border-2 border-gray-300 rounded-2xl h-[90px] flex items-center justify-center p-2">
+                            <div class="flex flex-col items-center">
+                                <img src="assets/opt-3.png" alt="">
+                                <h1 class="text-gray-600 font-semibold text-center">Transfer Money</h1>
+                            </div>
+                        </div>
+                        <!-- opt4 -->
+                        <div onclick="getBonus()" class="cursor-pointer border-2 border-gray-300 rounded-2xl h-[90px] flex items-center justify-center p-2">
+                            <div class="flex flex-col items-center">
+                                <img src="assets/opt-4.png" alt="">
+                                <h1 class="text-gray-600 font-semibold text-center">Get Bonus</h1>
+                            </div>
+                        </div>
+                        <!-- opt5 -->
+                        <div onclick="payBill()" class="cursor-pointer bg-[#0874F20D] border-2 border-[#0874F2] rounded-2xl h-[90px] flex items-center justify-center p-2">
+                            <div class="flex flex-col items-center">
+                                <img src="assets/opt-5.png" alt="">
+                                <h1 class="text-[#0874F2] font-semibold text-center">Pay Bill</h1>
+                            </div>
+                        </div>
+                        <!-- opt6 -->
+                        <div onclick="transactionHistory()" class="cursor-pointer border-2 border-gray-300 rounded-2xl h-[90px] flex items-center justify-center p-2">
+                            <div class="flex flex-col items-center">
+                                <img src="assets/opt-6.png" alt="">
+                                <h1 class="text-gray-600 font-semibold text-center">Transactions</h1>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </section>
+        <!-- Add Money -->
+        <section class="mt-5 p-2">
+            <div>
+                <h1 class="text-lg font-semibold ml-2">Add Money</h1>
+                <form class="mt-2 p-5 bg-[#FFFFFF] space-y-5 rounded-xl">
+                    <div class="flex flex-col space-y-2">
+                        <h1 class="text-base font-semibold">Select to Pay</h1>
+                        <select class="select bg-[#f4f5f7] rounded-full border-none focus:outline-none focus:ring-0">
+                            <option disabled selected>Select to Pay</option>
+                            <option>Phone Bill</option>
+                            <option>Internet Bill</option>
+                            <option>Electricity Bill</option>
+                            <option>Gas Bill</option>
+                            <option>Water Bill</option>
+                        </select>
+                    </div>
+                    <div class="flex flex-col space-y-2">
+                        <h1 class="text-base font-semibold">Biller Account Number</h1>
+                        <input id="input-biller-acc-number" type="text" placeholder="Enter 11 Digit Biller Number"
+                            class="input bg-[#f4f5f7] rounded-full border-none focus:outline-none focus:ring-0" />
+                    </div>
+                    <div class="flex flex-col space-y-2">
+                        <h1 class="text-base font-semibold">Amount to Pay</h1>
+                        <input id="input-amount" type="text" placeholder="Enter Amount to Pay"
+                            class="input bg-[#f4f5f7] rounded-full border-none focus:outline-none focus:ring-0" />
+                    </div>
+                    <div class="flex flex-col space-y-2">
+                        <h1 class="text-base font-semibold">4 Digit Pin</h1>
+                        <input id="input-pin" type="password" placeholder="Enter 4 Digit Pin"
+                            class="input bg-[#f4f5f7] rounded-full border-none focus:outline-none focus:ring-0" />
+                    </div>
+                    <div>
+                        <button onclick="payBillBtn()" type="button" class="btn w-full bg-[#3B25C1] text-xl font-semibold text-white border-none rounded-full">Pay Bill</button>
+                    </div>
+                </form>
+            </div>
+        </section>
+
+        <script>
+            window.onload = function () {
+                const savedBalance = localStorage.getItem('mainBalance');
+                if (savedBalance) {
+                    document.getElementById('main-balance').innerText = '$' + savedBalance;
+                }
+            }
+        </script>
+    </main>
+    <script src="js/script.js"></script>
+    <script src="js/utility.js"></script>
+</body>
+</html>

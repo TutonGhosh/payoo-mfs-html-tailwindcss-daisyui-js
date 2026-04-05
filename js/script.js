@@ -169,6 +169,44 @@ function getBonusBtn()
     }
 }
 
+// Pay Bill Page
+function payBill()
+{
+    window.location.href = "./paybill.html"
+}
+// Pay Bill Function
+function payBillBtn()
+{
+    const mainBalance = document.getElementById('main-balance');
+    const inputBillerAccountNumber = document.getElementById('input-biller-acc-number');
+    const inputAmount = document.getElementById('input-amount');
+    const inputPin = document.getElementById('input-pin');
+
+    let balance = parseInt(mainBalance.innerText.replace('$', ''));
+    const billerAccountNumber = parseInt(inputBillerAccountNumber.value);
+    const amount = parseInt(inputAmount.value);
+    const pin = parseInt(inputPin.value);
+
+    if((!isNaN(billerAccountNumber) && inputBillerAccountNumber.value.length === 11) && (!isNaN(pin) && inputPin.value.length === 4))
+    {
+        if(balance < amount)
+        {
+            alert("Insufficient balance!");
+        }
+        else
+        {
+            balance -= amount;
+            mainBalance.innerHTML = '$' + balance;
+            window.localStorage.setItem('mainBalance', balance);
+            window.location.href = "./transaction_successful.html";
+        }
+    }
+    else
+    {
+        alert("Invalid Input");
+    }
+}
+
 // Back to Home
 function backToHome(mainBalance)
 {
