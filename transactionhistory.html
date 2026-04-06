@@ -97,97 +97,8 @@
                 <div class="text-sm font-semibold text-gray-600">View All</div>
             </div>
             <!-- Payment History -->
-            <div class="space-y-3">
-                <!-- payment-1 -->
-                <div class="flex justify-between items-center bg-[#FFFFFF] p-2 px-3 rounded-lg">
-                    <div class="flex gap-3">
-                        <div class="bg-[#f4f5f7] rounded-full p-3">
-                            <img class="h-[20px]" src="assets/opt-5.png" alt="">
-                        </div>
-                        <div>
-                            <h1 class="text-base font-semibold text-gray-700">Electricity Bill</h1>
-                            <p class="text-xs font-medium text-gray-600">Today 05:03 PM</p>
-                        </div>
-                    </div>
-                    <div>
-                        <i class="fa-solid fa-ellipsis-vertical"></i>
-                    </div>
-                </div>
-                <!-- payment-2 -->
-                <div class="flex justify-between items-center bg-[#FFFFFF] p-2 px-3 rounded-lg">
-                    <div class="flex gap-3">
-                        <div class="bg-[#f4f5f7] rounded-full p-3">
-                            <img class="h-[20px]" src="assets/opt-3.png" alt="">
-                        </div>
-                        <div>
-                            <h1 class="text-base font-semibold text-gray-700">Bank Deposit</h1>
-                            <p class="text-xs font-medium text-gray-600">Today 2:20 AM</p>
-                        </div>
-                    </div>
-                    <div>
-                        <i class="fa-solid fa-ellipsis-vertical"></i>
-                    </div>
-                </div>
-                <!-- payment-3 -->
-                <div class="flex justify-between items-center bg-[#FFFFFF] p-2 px-3 rounded-lg">
-                    <div class="flex gap-3">
-                        <div class="bg-[#f4f5f7] rounded-full p-3">
-                            <img class="h-[20px]" src="assets/opt-6.png" alt="">
-                        </div>
-                        <div>
-                            <h1 class="text-base font-semibold text-gray-700">Cash Out</h1>
-                            <p class="text-xs font-medium text-gray-600">Today 01:34 PM</p>
-                        </div>
-                    </div>
-                    <div>
-                        <i class="fa-solid fa-ellipsis-vertical"></i>
-                    </div>
-                </div>
-                <!-- payment-4 -->
-                <div class="flex justify-between items-center bg-[#FFFFFF] p-2 px-3 rounded-lg">
-                    <div class="flex gap-3">
-                        <div class="bg-[#f4f5f7] rounded-full p-3">
-                            <img class="h-[20px]" src="assets/opt-5.png" alt="">
-                        </div>
-                        <div>
-                            <h1 class="text-base font-semibold text-gray-700">Mobile Recharge</h1>
-                            <p class="text-xs font-medium text-gray-600">Yesterday 04:47 PM</p>
-                        </div>
-                    </div>
-                    <div>
-                        <i class="fa-solid fa-ellipsis-vertical"></i>
-                    </div>
-                </div>
-                <!-- payment-5 -->
-                <div class="flex justify-between items-center bg-[#FFFFFF] p-2 px-3 rounded-lg">
-                    <div class="flex gap-3">
-                        <div class="bg-[#f4f5f7] rounded-full p-3">
-                            <img class="h-[20px]" src="assets/opt-4.png" alt="">
-                        </div>
-                        <div>
-                            <h1 class="text-base font-semibold text-gray-700">Get Bonus</h1>
-                            <p class="text-xs font-medium text-gray-600">Yesterday 02:05 PM</p>
-                        </div>
-                    </div>
-                    <div>
-                        <i class="fa-solid fa-ellipsis-vertical"></i>
-                    </div>
-                </div>
-                <!-- payment-6 -->
-                <div class="flex justify-between items-center bg-[#FFFFFF] p-2 px-3 rounded-lg">
-                    <div class="flex gap-3">
-                        <div class="bg-[#f4f5f7] rounded-full p-3">
-                            <img class="h-[20px]" src="assets/opt-3.png" alt="">
-                        </div>
-                        <div>
-                            <h1 class="text-base font-semibold text-gray-700">Home Rent</h1>
-                            <p class="text-xs font-medium text-gray-600">Yesterday 10:12 AM</p>
-                        </div>
-                    </div>
-                    <div>
-                        <i class="fa-solid fa-ellipsis-vertical"></i>
-                    </div>
-                </div>
+            <div id="transaction-container" class="space-y-3">
+                
             </div>
         </div>
         </section>
@@ -199,6 +110,8 @@
             if (savedBalance) {
                 document.getElementById('main-balance').innerText = '$' + savedBalance;
             }
+            
+            loadTransaction();
         }
     </script>
     <script src="js/script.js"></script>

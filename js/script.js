@@ -51,9 +51,16 @@ function addMoneyBtn()
         window.location.href = './transaction_successful.html';
     }
     else
-    {
-        alert("Invalid Input");
+        {
+            alert("Invalid Input");
+        }
+        
+    const data = {
+        name: "Add Money",
+        date: new Date().toLocaleString()
     }
+    transactionData.push(data);
+    localStorage.setItem('transactionData', JSON.stringify(transactionData));
 }
 
 // Cash Out Page
@@ -92,6 +99,13 @@ function cashOutBtn()
     {
         alert("Invalid Input");
     }
+
+    const data = {
+        name: "Cash Out",
+        date: new Date().toLocaleString()
+    }
+    transactionData.push(data);
+    localStorage.setItem('transactionData', JSON.stringify(transactionData));
 }
 
 // Transfer Money Page
@@ -130,6 +144,13 @@ function transferMoneyBtn()
     {
         alert("Invalid Input");
     }
+
+    const data = {
+        name: "Transfer Money",
+        date: new Date().toLocaleString()
+    }
+    transactionData.push(data);
+    localStorage.setItem('transactionData', JSON.stringify(transactionData));
 }
 
 // Get Bonus Page
@@ -167,6 +188,13 @@ function getBonusBtn()
     {
         alert("Wrong Coupon!");
     }
+
+    const data = {
+        name: "Get Bonus",
+        date: new Date().toLocaleString()
+    }
+    transactionData.push(data);
+    localStorage.setItem('transactionData', JSON.stringify(transactionData));
 }
 
 // Pay Bill Page
@@ -205,12 +233,47 @@ function payBillBtn()
     {
         alert("Invalid Input");
     }
+
+    const data = {
+        name: "Pay Bill",
+        date: new Date().toLocaleString()
+    }
+    transactionData.push(data);
+    localStorage.setItem('transactionData', JSON.stringify(transactionData));
 }
 
+// 
+const transactionData = JSON.parse(localStorage.getItem('transactionData')) || [];
 // Transaction History Page
 function transactionHistory()
 {
     window.location.href = "./transactionhistory.html"
+}
+// 
+function loadTransaction()
+{
+    const transactionContainer = document.getElementById('transaction-container');
+    for(const data of transactionData)
+    {
+        const div = document.createElement('div');
+        div.innerHTML = `
+        <div class="flex justify-between items-center bg-[#FFFFFF] p-2 px-3 rounded-lg">
+            <div class="flex gap-3">
+                <div class="bg-[#f4f5f7] rounded-full p-3">
+                    <img class="h-[20px]" src="assets/opt-5.png" alt="">
+                </div>
+                <div>
+                    <h1 class="text-base font-semibold text-gray-700">${data.name}</h1>
+                    <p class="text-xs font-medium text-gray-600">${data.date}</p>
+                </div>
+            </div>
+            <div>
+                <i class="fa-solid fa-ellipsis-vertical"></i>
+            </div>
+        </div>       
+        `
+        transactionContainer.appendChild(div)
+    }
 }
 // Back to Home
 function backToHome(mainBalance)
