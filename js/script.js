@@ -57,9 +57,11 @@ function addMoneyBtn()
         
     const data = {
         name: "Add Money",
+        bill: amount,
         date: new Date().toLocaleString()
     }
     transactionData.push(data);
+    
     localStorage.setItem('transactionData', JSON.stringify(transactionData));
 }
 
@@ -102,6 +104,7 @@ function cashOutBtn()
 
     const data = {
         name: "Cash Out",
+        bill: amount,
         date: new Date().toLocaleString()
     }
     transactionData.push(data);
@@ -147,6 +150,7 @@ function transferMoneyBtn()
 
     const data = {
         name: "Transfer Money",
+        bill: amount,
         date: new Date().toLocaleString()
     }
     transactionData.push(data);
@@ -191,6 +195,7 @@ function getBonusBtn()
 
     const data = {
         name: "Get Bonus",
+        bill: amount,
         date: new Date().toLocaleString()
     }
     transactionData.push(data);
@@ -243,14 +248,14 @@ function payBillBtn()
     localStorage.setItem('transactionData', JSON.stringify(transactionData));
 }
 
-// 
+// Transaction Data
 const transactionData = JSON.parse(localStorage.getItem('transactionData')) || [];
 // Transaction History Page
 function transactionHistory()
 {
     window.location.href = "./transactionhistory.html"
 }
-// 
+// Load Transaction Page
 function loadTransaction()
 {
     const transactionContainer = document.getElementById('transaction-container');
@@ -295,7 +300,8 @@ function loadTransaction()
             </div>       
             `
         }
-        transactionContainer.appendChild(div)
+        transactionContainer.appendChild(div);
+        document.getElementById('history-display').style.display = 'none';
     }
 }
 // Back to Home
