@@ -53,6 +53,7 @@ function addMoneyBtn()
     else
         {
             alert("Invalid Input");
+            return;
         }
         
     const data = {
@@ -88,6 +89,7 @@ function cashOutBtn()
         if(balance < amount)
         {
             alert("Insufficient balance!");
+            return;
         }
         else
         {
@@ -100,6 +102,7 @@ function cashOutBtn()
     else
     {
         alert("Invalid Input");
+        return;
     }
 
     const data = {
@@ -134,6 +137,7 @@ function transferMoneyBtn()
         if(balance < amount)
         {
             alert("Insufficient balance!");
+            return;
         }
         else
         {
@@ -146,6 +150,7 @@ function transferMoneyBtn()
     else
     {
         alert("Invalid Input");
+        return;
     }
 
     const data = {
@@ -170,11 +175,13 @@ function getBonusBtn()
     const coupon = inputCoupon.value
 
     let balance = parseInt(mainBalance.innerText.replace('$', ''));
+    let amount = 0;
 
     if(coupon === 'payoo100' || coupon === 'payoo200')
     {
         if(coupon === 'payoo100')
         {
+            amount = 100;
             balance += 100;
             mainBalance.innerHTML = '$' + balance;
             window.localStorage.setItem('mainBalance', balance);
@@ -182,6 +189,7 @@ function getBonusBtn()
         }
         else if(coupon === 'payoo200')
         {
+            amount = 200;
             balance += 200;
             mainBalance.innerHTML = '$' + balance;
             window.localStorage.setItem('mainBalance', balance);
@@ -191,6 +199,7 @@ function getBonusBtn()
     else
     {
         alert("Wrong Coupon!");
+        return
     }
 
     const data = {
@@ -225,6 +234,7 @@ function payBillBtn()
         if(balance < amount)
         {
             alert("Insufficient balance!");
+            return;
         }
         else
         {
@@ -237,6 +247,7 @@ function payBillBtn()
     else
     {
         alert("Invalid Input");
+        return;
     }
 
     const data = {
