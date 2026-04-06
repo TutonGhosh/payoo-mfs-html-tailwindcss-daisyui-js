@@ -236,6 +236,7 @@ function payBillBtn()
 
     const data = {
         name: "Pay Bill",
+        bill: amount,
         date: new Date().toLocaleString()
     }
     transactionData.push(data);
@@ -256,22 +257,44 @@ function loadTransaction()
     for(const data of transactionData)
     {
         const div = document.createElement('div');
-        div.innerHTML = `
-        <div class="flex justify-between items-center bg-[#FFFFFF] p-2 px-3 rounded-lg">
-            <div class="flex gap-3">
-                <div class="bg-[#f4f5f7] rounded-full p-3">
-                    <img class="h-[20px]" src="assets/opt-5.png" alt="">
+        if(data.name === 'Add Money' || data.name === "Get Bonus")
+        {
+            div.innerHTML = `
+            <div class="flex justify-between items-center bg-[#FFFFFF] p-2 px-3 rounded-lg">
+                <div class="flex gap-3">
+                    <div class="bg-[#f4f5f7] rounded-full p-3">
+                        <img class="h-[20px]" src="assets/opt-5.png" alt="">
+                    </div>
+                    <div>
+                        <h1 class="text-base font-semibold text-gray-700">${data.name} <span class="text-green-400 ml-3">+${data.bill}</span></h1>
+                        <p class="text-xs font-medium text-blue-500">${data.date}</p>
+                    </div>
                 </div>
                 <div>
-                    <h1 class="text-base font-semibold text-gray-700">${data.name}</h1>
-                    <p class="text-xs font-medium text-gray-600">${data.date}</p>
+                    <i class="fa-solid fa-ellipsis-vertical"></i>
                 </div>
-            </div>
-            <div>
-                <i class="fa-solid fa-ellipsis-vertical"></i>
-            </div>
-        </div>       
-        `
+            </div>       
+            `
+        }
+        else
+        {
+            div.innerHTML = `
+            <div class="flex justify-between items-center bg-[#FFFFFF] p-2 px-3 rounded-lg">
+                <div class="flex gap-3">
+                    <div class="bg-[#f4f5f7] rounded-full p-3">
+                        <img class="h-[20px]" src="assets/opt-5.png" alt="">
+                    </div>
+                    <div>
+                        <h1 class="text-base font-semibold text-gray-700">${data.name} <span class="text-red-400 ml-3">-${data.bill}</span></h1>
+                        <p class="text-xs font-medium text-blue-500">${data.date}</p>
+                    </div>
+                </div>
+                <div>
+                    <i class="fa-solid fa-ellipsis-vertical"></i>
+                </div>
+            </div>       
+            `
+        }
         transactionContainer.appendChild(div)
     }
 }
