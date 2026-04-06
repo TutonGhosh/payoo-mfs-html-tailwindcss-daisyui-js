@@ -313,6 +313,8 @@ function loadTransaction()
         }
         transactionContainer.appendChild(div);
         document.getElementById('history-display').style.display = 'none';
+        document.getElementById('home-body').classList.remove = 'h-full';
+        document.getElementById('home-body').classList.add = 'h-auto';
     }
 }
 // Back to Home
